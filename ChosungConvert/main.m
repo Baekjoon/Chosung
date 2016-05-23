@@ -62,11 +62,19 @@ int main(int argc, const char * argv[]) {
             }
         }
         NSString *converted = result;
+        /*
         converted = [converted stringByReplacingOccurrencesOfString:@"ㄱㄱ" withString:@"ㄲ"];
         converted = [converted stringByReplacingOccurrencesOfString:@"ㄷㄷ" withString:@"ㄸ"];
         converted = [converted stringByReplacingOccurrencesOfString:@"ㅂㅂ" withString:@"ㅃ"];
         converted = [converted stringByReplacingOccurrencesOfString:@"ㅅㅅ" withString:@"ㅆ"];
-        converted = [converted stringByReplacingOccurrencesOfString:@"ㅈㅈ" withString:@"ㅉ"];
+        converted = [converted stringByReplacingOccurrencesOfString:@"ㅈㅈ" withString:@"ㅉ"];*/
+        
+        for (NSString *chosung in @[@"ㄱ",@"ㄷ",@"ㅂ",@"ㅅ",@"ㅈ"]) {
+            NSString *str1 = [NSString stringWithFormat:@"%@%@",chosung,chosung];
+            NSUInteger index = [chosungs indexOfObject:chosung];
+            NSString *str2 = chosungs[index+1];
+            converted = [converted stringByReplacingOccurrencesOfString:str1 withString:str2];
+        }
         
         NSLog(@"%@",result);
         NSLog(@"%@",converted);
